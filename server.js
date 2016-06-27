@@ -8,11 +8,19 @@ new WebpackDevServer(webpack(config), {
     historyApiFallback: true,
     stats: {
         colors: true
-    }
-}).listen(3000, 'localhost', function (err) {
+    },
+    proxy: {
+      '/customer/*': {
+        bypass: function (req, res, proxyOptions){
+          return '/customer';
+        }
+      },
+      "*": "http://localhost:3000",
+    },
+}).listen(3001, 'localhost', function (err) {
     if (err) {
         console.log(err);
     }
 
-  console.log('Listening at localhost:3000');
+  console.log('Listening at localhost:3001');
 });

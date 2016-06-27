@@ -8,6 +8,7 @@ const FilterableTable = ({ filter, onFilter }) => {
 
     return (
         <div className="filterable-table">
+        <h1>BLAHDY</h1>
             <input
                 value={filter}
                 ref={node => {input = node;}}
