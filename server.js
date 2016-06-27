@@ -10,9 +10,9 @@ new WebpackDevServer(webpack(config), {
         colors: true
     },
     proxy: {
-      '/customer/*': {
+      '/filter/*': {
         bypass: function (req, res, proxyOptions){
-          return '/customer';
+          return '/filter';
         }
       },
       "*": "http://localhost:3000",
